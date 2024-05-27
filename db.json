@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "Shite Dhor Parle",
+      "image": "https://www.boredpanda.com/blog/wp-content/uploads/2022/11/637221c024352_funny-dress-fashion-pics.jpg",
+      "price": "100",
+      "description": "this is description"
+    },
+    {
+      "id": "3",
+      "title": "Moye Moye",
+      "image": "https://i.pinimg.com/736x/f4/59/3b/f4593bc51a16a4992e0025f0405814d4.jpg",
+      "price": "50",
+      "description": "description added"
+    },
+    {
+      "id": "4",
+      "title": "Octopus Jama",
+      "image": "https://i.pinimg.com/736x/16/84/ef/1684ef440aef37b35cfca7bf7bc6eee2.jpg",
+      "price": 3000
+    }
+  ],
+  "catagories": [
+    {
+      "id": "1",
+      "title": "Shoe"
+    }
+  ]
+}
