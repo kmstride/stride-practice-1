@@ -1,8 +1,13 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 function DashboardLayout() {
+  const navigate = useNavigate()
+  const handleLogout = ()=>{
+    sessionStorage.clear("user")
+    navigate("/login")
+  }
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -35,6 +40,13 @@ function DashboardLayout() {
           </li>
           <li>
             <Link to="/">Go Back To Home</Link>
+          </li>
+          <li>
+            <button
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </div>

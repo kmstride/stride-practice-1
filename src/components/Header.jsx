@@ -1,10 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
-    const navs = <>
-        <li><Link to="/dashboard" >Dashboard</Link></li>
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    sessionStorage.clear("user");
+    navigate("/login");
+  };
+  const navs = (
+    <>
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
     </>
+  );
   return (
     <header>
       <div className="navbar bg-base-100">
@@ -33,15 +43,26 @@ function Header() {
               {navs}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl">Amader Shop</Link>
+          <Link to="/" className="btn btn-ghost text-xl">
+            Amader Shop
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-           {navs}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navs}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {!user ? (
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          ) : (
+            <button
+              className="btn"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </header>

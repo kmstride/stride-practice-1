@@ -1,9 +1,11 @@
 import React from 'react'
 
 function Dashboard() {
+  const user = JSON.parse(sessionStorage.getItem("user"));
   return (
     <div>
-      This is dashboard
+      <p>Welcome User to Your Dashboard!</p>
+      <p>Your Email is : {user?.email}</p>
     </div>
   )
 }

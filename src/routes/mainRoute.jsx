@@ -8,6 +8,9 @@ import SingleItem from "../pages/SingleItem/SingleItem";
 import AddItem from "../pages/Dashboard/AddItem";
 import MyItems from "../pages/Dashboard/MyItems";
 import EditItem from "../pages/Dashboard/EditItem";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -24,12 +27,20 @@ export const router = createBrowserRouter([
                 path: "items/:id",
                 element: <SingleItem />,
                 loader: ({params})=> fetch(`http://localhost:3000/items/${params.id}`)
+            },
+            {
+                path: "login",
+                element: <Login />
+            },
+            {
+                path: "register",
+                element: <Register />
             }
         ]
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout />,
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         errorElement: <ErrorPage />,
         children: [
             {
