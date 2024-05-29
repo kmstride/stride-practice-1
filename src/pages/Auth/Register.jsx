@@ -24,7 +24,7 @@ function Register() {
     }
   };
   if(user?.email){
-    navigate(from, { replace: true });
+    navigate("/", { replace: true });
   }
   return (
     <div className="flex flex-col items-center">
